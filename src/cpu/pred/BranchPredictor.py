@@ -490,6 +490,13 @@ class LTAGE(TAGE):
     loop_predictor = Param.LoopPredictor(LoopPredictor(), "Loop predictor")
 
 
+class LLBP(LTAGE):
+    type = "LLBP"
+    cxx_class = "gem5::branch_prediction::LLBP"
+    cxx_header = "cpu/pred/llbp.hh"
+    ltage = LTAGE()
+
+
 class TAGE_SC_L_LoopPredictor(LoopPredictor):
     type = "TAGE_SC_L_LoopPredictor"
     cxx_class = "gem5::branch_prediction::TAGE_SC_L_LoopPredictor"
