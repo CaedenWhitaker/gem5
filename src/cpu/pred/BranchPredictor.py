@@ -490,6 +490,19 @@ class LTAGE(TAGE):
     loop_predictor = Param.LoopPredictor(LoopPredictor(), "Loop predictor")
 
 
+class LLBP(LTAGE):
+    type = "LLBP"
+    cxx_class = "gem5::branch_prediction::LLBP"
+    cxx_header = "cpu/pred/llbp.hh"
+
+    CTWidth = Param.Int(14, "RCR CTWidth")
+    patternBufferCapacity = Param.Int(16, "Pattern Buffer Capacity")
+    contextCapacity = Param.Int(1 << 4, "Context Capacity")
+    storageCapacity = Param.Int(1 << 16, "Storage Capacity")
+    ptnCounterBits = Param.Int(3, "Bits in Pattern Counter")
+    ctxCounterBits = Param.Int(2, "Bits in Context Replacement Counter")
+
+
 class TAGE_SC_L_LoopPredictor(LoopPredictor):
     type = "TAGE_SC_L_LoopPredictor"
     cxx_class = "gem5::branch_prediction::TAGE_SC_L_LoopPredictor"
